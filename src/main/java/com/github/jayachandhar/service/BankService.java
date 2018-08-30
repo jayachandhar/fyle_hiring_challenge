@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class BankService {
     @Autowired
-    BankRepository bankRepository;
+    private BankRepository bankRepository;
 
     public Bank getDetailsByIfscCode(String ifscCode) {
         if (StringUtils.isEmpty(ifscCode) || ifscCode.length() != 11)
@@ -31,7 +31,7 @@ public class BankService {
             throw new GenericRunTimeException("4005", "Invalid Bank name");
 
         List<Bank> banks = bankRepository.getBanksByBankNameAndCity(bankName.toUpperCase(), city.toUpperCase());
-        if (banks != null)
+        if (banks != null && banks.size() != 0)
             return banks;
         else
             throw new GenericRunTimeException("4004", "No Record available");

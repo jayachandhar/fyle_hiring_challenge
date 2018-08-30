@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface BankRepository extends JpaRepository<Bank, Serializable> {
-    List<Bank> getBanksByBankNameAndCity(String bankName, String city);
+    List<Bank> getBanksByBankNameContainingAndCity(String bankName, String city);
 }

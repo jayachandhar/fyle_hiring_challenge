@@ -31,7 +31,7 @@ public class BankService {
             throw new GenericRunTimeException("4005", "Invalid Bank name");
         bankName = bankName.toUpperCase().replace("\"", "");
         city = city.toUpperCase().replace("\"", "");
-        List<Bank> banks = bankRepository.getBanksByBankNameAndCity(bankName, city);
+        List<Bank> banks = bankRepository.getBanksByBankNameContainingAndCity(bankName, city);
         if (banks != null && banks.size() != 0)
             return banks;
         else

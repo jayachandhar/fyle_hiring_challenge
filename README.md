@@ -17,7 +17,7 @@ Get IFSC Code based on bank name and branch name:<br/>
 https://openbankservice.herokuapp.com/api/banks/getifsc?bankname=:bankname&branchname=:branchname<br/>
 
 e.g.<br/>
-https://openbankservice.herokuapp.com/api/banks/getifsc?bankname=icici&branchname=KORMANGALA<br/>
+https://openbankservice.herokuapp.com/api/banks/getifsc?bankname=ANDHRA&branchname=CHATHRAPATTI<br/>
 
 Validate a IFSC code:<br/>
 https://openbankservice.herokuapp.com/api/banks/validateifsc/:ifdcCode<br/>

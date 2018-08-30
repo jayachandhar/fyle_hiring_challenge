@@ -17,8 +17,8 @@ Get IFSC Code based on bank name and branch name:<br/>
 https://openbankservice.herokuapp.com/api/banks/getifsc?bankname=:bankname&branchname=:branchname<br/>
 
 e.g.<br/>
-<p>https://openbankservice.herokuapp.com/api/banks/getifsc?bankname="ABHYUDAYA COOPERATIVE BANK LIMITED"&branchname="BAIL BAZAR"<br/>
-<p>
+https://openbankservice.herokuapp.com/api/banks/getifsc?bankname=icici&branchname=KORMANGALA<br/>
+
 Validate a IFSC code:<br/>
 https://openbankservice.herokuapp.com/api/banks/validateifsc/:ifdcCode<br/>
 

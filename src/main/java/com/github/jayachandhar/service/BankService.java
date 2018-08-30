@@ -45,7 +45,7 @@ public class BankService {
             throw new GenericRunTimeException("4005", "Invalid Bank name");
         bankName = bankName.toUpperCase().replace("\"", "");
         branchName = branchName.toUpperCase().replace("\"", "");
-        Bank bank = bankRepository.getBankByBankNameContainingAndBranchNameContaining(bankName, branchName);
+        Bank bank = bankRepository.getBankByBankNameContainingAndBranchName(bankName, branchName);
         if (bank != null && bank.getIfscCode().length() != 0)
             return bank.getIfscCode();
         else

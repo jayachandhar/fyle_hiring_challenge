@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/banks")
+@RequestMapping("/api/banks")
 public class BankController {
     @Autowired
     private BankService bankService;

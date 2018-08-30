@@ -7,7 +7,6 @@ https://openbankservice.herokuapp.com/api/banks/:IFSCcode:<br/>
 e.g.<br/>
 https://openbankservice.herokuapp.com/api/banks/ANDB0002012<br/>
 
-
 Get Bank details based on bank name and city:<br/>
 https://openbankservice.herokuapp.com/api/banks/nearbybanks?bankname=:bankname:&city=:city:<br/>
 

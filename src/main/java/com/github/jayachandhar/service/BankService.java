@@ -37,4 +37,28 @@ public class BankService {
         else
             throw new GenericRunTimeException("4004", "No Record available");
     }
+
+    public String getIfscCode(String bankName, String branchName) {
+        if (StringUtils.isEmpty(branchName))
+            throw new GenericRunTimeException("4005", "Invalid Branch name");
+        if (StringUtils.isEmpty(bankName))
+            throw new GenericRunTimeException("4005", "Invalid Bank name");
+        bankName = bankName.toUpperCase().replace("\"", "");
+        branchName = branchName.toUpperCase().replace("\"", "");
+        Bank bank = bankRepository.getBankByBankNameContainingAndBranchNameContaining(bankName, branchName);
+        if (bank != null && bank.getIfscCode().length() != 0)
+            return bank.getIfscCode();
+        else
+            throw new GenericRunTimeException("4004", "No Record available");
+    }
+
+    public String validateIfsc(String ifscCode) {
+        if (StringUtils.isEmpty(ifscCode) || ifscCode.length() != 11)
+            throw new GenericRunTimeException("4005", "Invalid IFSC code");
+        if (bankRepository.exists(ifscCode))
+            return "exists";
+        else
+            return "not exists";
+
+    }
 }

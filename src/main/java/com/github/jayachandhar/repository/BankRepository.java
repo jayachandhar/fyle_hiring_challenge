@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface BankRepository extends JpaRepository<Bank, Serializable> {
     List<Bank> getBanksByBankNameContainingAndCity(String bankName, String city);
+
+    Bank getBankByBankNameContainingAndBranchNameContaining(String bankName, String branchName);
 }

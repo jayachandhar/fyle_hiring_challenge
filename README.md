@@ -13,5 +13,19 @@ https://openbankservice.herokuapp.com/api/banks/nearbybanks?bankname=:bankname:&
 e.g.<br/>
 https://openbankservice.herokuapp.com/api/banks/nearbybanks?bankname=hdfc&city=bangalore<br/>
 
+Get IFSC Code based on bank name and branch name:<br/>
+https://openbankservice.herokuapp.com/api/banks/getifsc?bankname=:bankname&branchname=:branchname<br/>
+
+e.g.<br/>
+https://openbankservice.herokuapp.com/api/banks/getifsc?bankname=ABHYUDAYA COOPERATIVE BANK LIMITED&branchname=BAIL BAZAR<br/>
+
+Validate a IFSC code:<br/>
+https://openbankservice.herokuapp.com/api/banks/validateifsc/:ifdcCode:<br/>
+
+e.g.<br/>
+https://openbankservice.herokuapp.com/api/banks/validateifsc/ANDC0002012<br/>
+
+
+
 
 

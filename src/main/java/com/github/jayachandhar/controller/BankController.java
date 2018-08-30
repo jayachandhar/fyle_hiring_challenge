@@ -35,7 +35,7 @@ public class BankController {
 
     }
 
-    @GetMapping(value = "nearbybanks", produces = {"application/json"})
+    @GetMapping(value = "/nearbybanks", produces = {"application/json"})
     public ResponseEntity getBanksByCityBankName(@RequestParam("bankname") String bankName, @RequestParam("city") String city) {
         try {
             logger.debug("Request received for bank : " + bankName + " and city : " + city);
@@ -47,4 +47,31 @@ public class BankController {
             return new ResponseEntity<>(new ErrorResponse(ex.getErrorCode(), ex.getMessage()), HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping(value = "/getifsc")
+    public ResponseEntity getIfsc(@RequestParam("bankname") String bankName, @RequestParam("branchname") String branchName) {
+        try {
+            logger.debug("Request received for bank : " + bankName + " and branchName : " + branchName);
+            String ifscCode = bankService.getIfscCode(bankName, branchName);
+            logger.debug("Request successful for bank : " + bankName + " and branchName : " + branchName);
+            return new ResponseEntity<>(ifscCode, HttpStatus.OK);
+        } catch (GenericRunTimeException ex) {
+            logger.error("Request failed for bank name : " + bankName + " and branchName : " + branchName + ". Reason => " + ex.getMessage());
+            return new ResponseEntity<>(new ErrorResponse(ex.getErrorCode(), ex.getMessage()), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping(value = "/validateifsc/{ifscCode}")
+    public ResponseEntity validateIfscCode(@PathVariable("ifscCode") String ifscCode) {
+        try {
+            logger.debug("Request received for ifsc code : " + ifscCode);
+            String validity = bankService.validateIfsc(ifscCode);
+            logger.debug("Request successful for ifsc code : " + ifscCode);
+            return new ResponseEntity<>(validity, HttpStatus.OK);
+        } catch (GenericRunTimeException ex) {
+            logger.error("Request failed for ifsc code : " + ifscCode + ". Reason => " + ex.getMessage());
+            return new ResponseEntity<>(new ErrorResponse(ex.getErrorCode(), ex.getMessage()), HttpStatus.NOT_FOUND);
+        }
+    }
+
 }
